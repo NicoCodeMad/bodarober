@@ -1,0 +1,214 @@
+---
+---
+
+<section id="cuenta-atras" class="relative py-28 md:py-36 overflow-hidden">
+  <!-- Background image with overlay -->
+  <div class="absolute inset-0 bg-cover bg-center bg-fixed"
+       style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80');">
+    <div class="absolute inset-0 bg-cream-50/92 backdrop-blur-[2px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+
+    <!-- Header -->
+    <div class="reveal mb-4">
+      <p class="font-sans text-[10px] tracking-[0.35em] uppercase text-sage-400 mb-3">26 · septiembre · 2026</p>
+      <h2 class="heading-display text-3xl md:text-4xl mb-2">Faltan</h2>
+    </div>
+
+    <!-- Countdown cards -->
+    <div class="reveal flex items-start justify-center gap-3 sm:gap-5 md:gap-7 mb-10">
+
+      <!-- Days -->
+      <div class="flex flex-col items-center">
+        <div class="cd-card relative w-[72px] h-[88px] sm:w-[90px] sm:h-[108px] md:w-[110px] md:h-[130px] 
+                    bg-white rounded-xl shadow-[0_4px_20px_rgba(107,128,80,0.08)] 
+                    border border-sage-100/60 flex items-center justify-center
+                    overflow-hidden">
+          <!-- Horizontal split line -->
+          <div class="absolute left-2 right-2 top-1/2 h-px bg-sage-100/50"></div>
+          <!-- Small notches on sides -->
+          <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-cream-50 rounded-r-full"></div>
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-cream-50 rounded-l-full"></div>
+          <span id="cd-days" class="font-display text-4xl sm:text-5xl md:text-6xl text-sage-700 leading-none tabular-nums">
+            ---
+          </span>
+        </div>
+        <span class="font-sans text-[10px] sm:text-xs tracking-[0.2em] uppercase text-sage-400 mt-3">Días</span>
+      </div>
+
+      <!-- Separator -->
+      <div class="flex flex-col items-center pt-7 sm:pt-9 md:pt-11">
+        <div class="flex flex-col gap-2">
+          <div class="w-1.5 h-1.5 rounded-full bg-sage-300"></div>
+          <div class="w-1.5 h-1.5 rounded-full bg-sage-300"></div>
+        </div>
+      </div>
+
+      <!-- Hours -->
+      <div class="flex flex-col items-center">
+        <div class="cd-card relative w-[72px] h-[88px] sm:w-[90px] sm:h-[108px] md:w-[110px] md:h-[130px] 
+                    bg-white rounded-xl shadow-[0_4px_20px_rgba(107,128,80,0.08)] 
+                    border border-sage-100/60 flex items-center justify-center
+                    overflow-hidden">
+          <div class="absolute left-2 right-2 top-1/2 h-px bg-sage-100/50"></div>
+          <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-cream-50 rounded-r-full"></div>
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-cream-50 rounded-l-full"></div>
+          <span id="cd-hours" class="font-display text-4xl sm:text-5xl md:text-6xl text-sage-700 leading-none tabular-nums">
+            --
+          </span>
+        </div>
+        <span class="font-sans text-[10px] sm:text-xs tracking-[0.2em] uppercase text-sage-400 mt-3">Horas</span>
+      </div>
+
+      <!-- Separator -->
+      <div class="flex flex-col items-center pt-7 sm:pt-9 md:pt-11">
+        <div class="flex flex-col gap-2">
+          <div class="w-1.5 h-1.5 rounded-full bg-sage-300"></div>
+          <div class="w-1.5 h-1.5 rounded-full bg-sage-300"></div>
+        </div>
+      </div>
+
+      <!-- Minutes -->
+      <div class="flex flex-col items-center">
+        <div class="cd-card relative w-[72px] h-[88px] sm:w-[90px] sm:h-[108px] md:w-[110px] md:h-[130px] 
+                    bg-white rounded-xl shadow-[0_4px_20px_rgba(107,128,80,0.08)] 
+                    border border-sage-100/60 flex items-center justify-center
+                    overflow-hidden">
+          <div class="absolute left-2 right-2 top-1/2 h-px bg-sage-100/50"></div>
+          <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-cream-50 rounded-r-full"></div>
+          <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-cream-50 rounded-l-full"></div>
+          <span id="cd-minutes" class="font-display text-4xl sm:text-5xl md:text-6xl text-sage-700 leading-none tabular-nums">
+            --
+          </span>
+        </div>
+        <span class="font-sans text-[10px] sm:text-xs tracking-[0.2em] uppercase text-sage-400 mt-3">Min</span>
+      </div>
+
+      <!-- Separator -->
+      <div class="flex flex-col items-center pt-7 sm:pt-9 md:pt-11">
+        <div class="flex flex-col gap-2">
+          <div class="w-1.5 h-1.5 rounded-full bg-sage-300"></div>
+          <div class="w-1.5 h-1.5 rounded-full bg-sage-300"></div>
+        </div>
+      </div>
+
+      <!-- Seconds (with ring) -->
+      <div class="flex flex-col items-center">
+        <div class="relative">
+          <div class="cd-card relative w-[72px] h-[88px] sm:w-[90px] sm:h-[108px] md:w-[110px] md:h-[130px] 
+                      bg-white rounded-xl shadow-[0_4px_20px_rgba(107,128,80,0.08)] 
+                      border border-sage-100/60 flex items-center justify-center
+                      overflow-hidden">
+            <div class="absolute left-2 right-2 top-1/2 h-px bg-sage-100/50"></div>
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-cream-50 rounded-r-full"></div>
+            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-cream-50 rounded-l-full"></div>
+            <span id="cd-seconds" class="font-display text-4xl sm:text-5xl md:text-6xl text-sage-700 leading-none tabular-nums">
+              --
+            </span>
+          </div>
+          <!-- Progress ring around seconds card -->
+          <svg id="seconds-ring" class="absolute -inset-1.5 w-[calc(100%+12px)] h-[calc(100%+12px)] -rotate-90 pointer-events-none" viewBox="0 0 120 140">
+            <rect x="2" y="2" width="116" height="136" rx="16" ry="16" 
+                  fill="none" stroke="#b5c0a4" stroke-width="1.5" stroke-opacity="0.3"
+                  stroke-dasharray="504" stroke-dashoffset="0" id="ring-track" />
+            <rect x="2" y="2" width="116" height="136" rx="16" ry="16" 
+                  fill="none" stroke="#7a8d62" stroke-width="2" stroke-opacity="0.5"
+                  stroke-dasharray="504" stroke-dashoffset="504" id="ring-progress"
+                  style="transition: stroke-dashoffset 1s linear;" />
+          </svg>
+        </div>
+        <span class="font-sans text-[10px] sm:text-xs tracking-[0.2em] uppercase text-sage-400 mt-3">Seg</span>
+      </div>
+    </div>
+
+    <!-- Tagline -->
+    <div class="reveal">
+      <p class="font-display text-xl md:text-2xl text-sage-500 italic">para el gran día</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .cd-card {
+    transition: transform 0.15s ease;
+  }
+  /* Subtle pulse when digit changes */
+  .cd-card.tick {
+    animation: cardTick 0.3s ease;
+  }
+  @keyframes cardTick {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+</style>
+
+<script>
+  const weddingDate = new Date('2026-09-26T12:00:00').getTime();
+  const ring = document.getElementById('ring-progress');
+
+  let prevSeconds = -1;
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if (diff <= 0) {
+      ['cd-days', 'cd-hours', 'cd-minutes', 'cd-seconds'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = '0';
+      });
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    updateDigit('cd-days', String(days));
+    updateDigit('cd-hours', String(hours).padStart(2, '0'));
+    updateDigit('cd-minutes', String(minutes).padStart(2, '0'));
+    updateDigit('cd-seconds', String(seconds).padStart(2, '0'));
+
+    // Update ring progress (seconds out of 60)
+    if (ring) {
+      const progress = (60 - seconds) / 60;
+      const offset = 504 * progress;
+      ring.setAttribute('stroke-dashoffset', String(offset));
+    }
+
+    // Tick animation on seconds card
+    if (seconds !== prevSeconds) {
+      const secCard = document.getElementById('cd-seconds')?.closest('.cd-card');
+      if (secCard) {
+        secCard.classList.remove('tick');
+        void secCard.offsetWidth; // reflow
+        secCard.classList.add('tick');
+      }
+      prevSeconds = seconds;
+    }
+  }
+
+  function updateDigit(id: string, value: string) {
+    const el = document.getElementById(id);
+    if (el && el.textContent !== value) {
+      el.textContent = value;
+      // Tick animation on the card
+      const card = el.closest('.cd-card');
+      if (card && id !== 'cd-seconds') { // seconds handled separately
+        card.classList.remove('tick');
+        void card.offsetWidth;
+        card.classList.add('tick');
+      }
+    }
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>

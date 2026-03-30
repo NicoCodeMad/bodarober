@@ -1,0 +1,161 @@
+---
+const navItems = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#cuenta-atras', label: 'Cuenta atrás' },
+  { href: '#celebracion', label: 'Celebración' },
+  { href: '#formulario', label: 'Confirmar' },
+  { href: '#regalo', label: 'Regalo' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  
+  <div id="nav-bar" class="relative z-50 w-full transition-all duration-500 bg-transparent text-white">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#inicio" id="nav-logo" class="font-display text-lg text-white/90 hover:text-white transition-colors">
+        R<span id="nav-logo-amp" class="text-white/50 mx-1">&</span>M
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8">
+        {navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="nav-link font-sans text-xs tracking-[0.15em] uppercase text-white/70 hover:text-white transition-colors duration-300"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <button id="mobile-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menú">
+        <span class="block w-6 h-px bg-white transition-all duration-300 burger-line" id="burger-1"></span>
+        <span class="block w-6 h-px bg-white transition-all duration-300 burger-line" id="burger-2"></span>
+        <span class="block w-4 h-px bg-white transition-all duration-300 ml-auto burger-line" id="burger-3"></span>
+      </button>
+    </div>
+  </div>
+
+  <div 
+    id="mobile-menu" 
+    class="md:hidden fixed inset-0 z-40 bg-cream-50/95 backdrop-blur-md transition-all duration-300 ease-out opacity-0 invisible flex flex-col justify-center items-center"
+  >
+    <ul class="flex flex-col items-center gap-8 pt-12">
+      {navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="mobile-link font-sans text-lg tracking-[0.15em] uppercase text-sage-600 hover:text-sage-800 transition-colors"
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+</header>
+
+<script>
+  const navBar = document.getElementById('nav-bar');
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const logo = document.getElementById('nav-logo');
+  const logoAmp = document.getElementById('nav-logo-amp');
+  const links = document.querySelectorAll('.nav-link');
+  const burgers = document.querySelectorAll('.burger-line');
+
+  let menuOpen = false;
+
+  // Comportamiento del scroll sobre la nueva barra (nav-bar)
+  window.addEventListener('scroll', () => {
+    if (!navBar) return;
+    const current = window.scrollY;
+
+    if (current > 80) {
+      navBar.classList.add('bg-cream-50/90', 'backdrop-blur-md', 'shadow-sm');
+      navBar.classList.remove('bg-transparent');
+      
+      logo?.classList.replace('text-white/90', 'text-sage-700');
+      logo?.classList.replace('hover:text-white', 'hover:text-sage-900');
+      logoAmp?.classList.replace('text-white/50', 'text-sage-400');
+      
+      links.forEach(l => {
+        l.classList.replace('text-white/70', 'text-sage-500');
+        l.classList.replace('hover:text-white', 'hover:text-sage-800');
+      });
+      
+      burgers.forEach(b => {
+        b.classList.replace('bg-white', 'bg-sage-600');
+      });
+    } else {
+      navBar.classList.remove('bg-cream-50/90', 'backdrop-blur-md', 'shadow-sm');
+      navBar.classList.add('bg-transparent');
+      
+      logo?.classList.replace('text-sage-700', 'text-white/90');
+      logo?.classList.replace('hover:text-sage-900', 'hover:text-white');
+      logoAmp?.classList.replace('text-sage-400', 'text-white/50');
+      
+      links.forEach(l => {
+        l.classList.replace('text-sage-500', 'text-white/70');
+        l.classList.replace('hover:text-sage-800', 'hover:text-white');
+      });
+      
+      if (!menuOpen) {
+        burgers.forEach(b => {
+          b.classList.replace('bg-sage-600', 'bg-white');
+        });
+      }
+    }
+  });
+
+  // Animación del botón hamburguesa y bloqueo de scroll
+  const b1 = document.getElementById('burger-1');
+  const b2 = document.getElementById('burger-2');
+  const b3 = document.getElementById('burger-3');
+
+  const toggleMenuState = () => {
+    if (menuOpen) {
+      b1?.classList.add('rotate-45', 'translate-y-[4px]');
+      b2?.classList.add('opacity-0');
+      b3?.classList.add('-rotate-45', '-translate-y-[4px]', 'w-6', 'ml-0');
+      
+      if (window.scrollY <= 80) {
+        burgers.forEach(b => b.classList.replace('bg-white', 'bg-sage-600'));
+      }
+      
+      // Mostrar menú: usamos solo opacidad y visibilidad sin transformaciones raras
+      menu?.classList.replace('opacity-0', 'opacity-100');
+      menu?.classList.replace('invisible', 'visible');
+      
+      document.body.style.overflow = 'hidden';
+    } else {
+      b1?.classList.remove('rotate-45', 'translate-y-[4px]');
+      b2?.classList.remove('opacity-0');
+      b3?.classList.remove('-rotate-45', '-translate-y-[4px]', 'w-6', 'ml-0');
+      
+      if (window.scrollY <= 80) {
+        burgers.forEach(b => b.classList.replace('bg-sage-600', 'bg-white'));
+      }
+      
+      menu?.classList.replace('opacity-100', 'opacity-0');
+      menu?.classList.replace('visible', 'invisible');
+      
+      document.body.style.overflow = '';
+    }
+  };
+
+  toggle?.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    toggleMenuState();
+  });
+
+  // Cerrar el menú móvil al hacer clic en un enlace
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      toggleMenuState();
+    });
+  });
+</script>
