@@ -1,8 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* 1. Google Fonts OBLIGATORIAMENTE en la línea 1 */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap');
+
+/* 2. Tailwind después */
+@import "tailwindcss";
+
+/* 3. Configuración del tema (Colores, fuentes y animaciones) */
+@theme {
+  --color-cream-50: #fdfbf7;
+  --color-cream-100: #f9f5eb;
+  
+  --color-sage-100: #e3e8e1;
+  --color-sage-200: #cdd6c9;
+  --color-sage-300: #b1c0ab;
+  --color-sage-400: #93a68c;
+  --color-sage-500: #788d70;
+  --color-sage-600: #5f7158;
+  --color-sage-700: #4c5b47;
+  --color-sage-800: #3e4a3a;
+  --color-sage-900: #333d30;
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-sans: 'Lato', sans-serif;
+
+  /* Registramos la animación para Tailwind v4 */
+  --animate-fade-in: fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 4. Definimos los keyframes de la animación que le faltaban al texto */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @layer base {
   html {

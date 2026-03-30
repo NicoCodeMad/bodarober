@@ -3,6 +3,9 @@ interface Props {
   title?: string;
 }
 
+// AQUÍ ESTÁ LA CLAVE: Importamos el CSS global para que Vite/Tailwind lo procese
+import '../styles/global.css'; 
+
 const { title = 'Roberto & Marina — 26.09.2026' } = Astro.props;
 ---
 
